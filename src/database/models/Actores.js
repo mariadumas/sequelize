@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const Genero = sequelize.define("Genero", {
+    const Actor = sequelize.define("Actor", {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -13,26 +13,27 @@ module.exports = (sequelize, DataTypes) => {
         updated_at: {
             type: DataTypes.DATE
         }, 
-        name: {
+        first_name: {
             type: DataTypes.STRING(100),
             allowNull: false
         },
-        ranking: {
-            type: DataTypes.DECIMAL(3, 1),
+        last_name: {
+            type: DataTypes.STRING(100),
             allowNull: false
         },
-        active: {
+        rating: {
+            type: DataTypes.DECIMAL(3, 1)
+        },
+        favorite_movie_id: {
             type: DataTypes.INTEGER,
-            defaultValue: 0,
-            allowNull: false
         }
 
     }, 
     {
-        tableName: "genres",
+        tableName: "actors",
         timestamps: true,
         underscored: true
         });
-    return Genero
+    return Actor
 }
 
